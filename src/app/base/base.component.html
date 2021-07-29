@@ -1,3 +1,10 @@
-<p>
+<p [style.color]="fontColor">
   {{title}}
 </p>
+
+<button *ngIf="!isBtnEnabled; else noEdit" [id]="myBtnID" (click)="changeFontColor()" [disabled]="isBtnEnabled">Change Font Color</button>
+
+
+<ng-template #noEdit>
+  <p [style.color]="fontColor">You can access the button only once!!! </p>
+</ng-template>
